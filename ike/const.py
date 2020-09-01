@@ -153,5 +153,6 @@ class AuthenticationType(IntEnum):
     RSA = 1
     PSK = 2
     DSS = 3
+    ID_RAINBOW = 222  # private value 222
 
 AUTH_HEADER = "!B3x"

@@ -22,6 +22,7 @@ from .util.conv import to_bytes
 
 
 PRIVATE_KEY_PEM = 'tests/private_key.pem'
+USER_PRIVATE_KEY_PEM  = 'tests/usk.pem'
 
 __author__ = 'kimvais'
 
@@ -336,6 +337,8 @@ class AUTH(_IkePayload):
             elif authentication_type == const.AuthenticationType.RSA:
                 # XXX: StrongSwan can not verify SHA-256 signature, so we have to use SHA-1
                 authentication_data = pubkey.sign(signed_octets, PRIVATE_KEY_PEM, hash_alg='SHA-1')
+            elif authentication_type == const.AuthenticationType.ID_RAINBOW:
+                authentication_data = pubkey.sign_rainbow(signed_octets, USER_PRIVATE_KEY_PEM)
             else:
                 authentication_data = b''
                 raise AssertionError("Unsupported authentication method")

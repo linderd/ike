@@ -3,7 +3,7 @@
 # Copyright © 2013 Kimmo Parviainen-Jalanko.
 #
 import operator
-import const
+#import const
 
 __author__ = 'kimvais'
 
